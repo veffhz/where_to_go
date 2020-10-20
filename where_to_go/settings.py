@@ -89,3 +89,7 @@ STATIC_URL = os.getenv('STATIC_URL', '/static/')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 
 STATIC_ROOT = os.getenv("STATIC_ROOT")
+
+MEDIA_ROOT = os.getenv("MEDIA_ROOT", os.path.join(BASE_DIR, 'media'))
+
+MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
