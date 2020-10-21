@@ -42,11 +42,12 @@ class Place(models.Model):
 class Image(models.Model):
     place_image = models.ImageField('Изображение')
     place = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='imgs',)
+    position = models.PositiveIntegerField('Позиция', default=0, blank=False, null=False)
 
     def __str__(self):
-        return f"{self.pk} {self.place}"
+        return f"{self.position} {self.place}"
 
     class Meta:
-        ordering = ['-id']
+        ordering = ['position']
         verbose_name = "Фотография"
         verbose_name_plural = "Фотографии"
