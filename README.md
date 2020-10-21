@@ -5,6 +5,7 @@
 ![&#x41A;&#x443;&#x434;&#x430; &#x43F;&#x43E;&#x439;&#x442;&#x438;](.gitbook/assets/site.png)
 
 [Демка сайта](http://weatherhz.pythonanywhere.com/).
+[Админка сайта](http://weatherhz.pythonanywhere.com/admin/) (login, password: admin/123456$).
 
 ## Как запустить
 
