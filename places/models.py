@@ -36,7 +36,7 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField('Изображение')
+    place_image = models.ImageField('Изображение')
     place = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='imgs',)
 
     def __str__(self):
