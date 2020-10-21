@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.views.generic.base import View
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
@@ -23,4 +23,7 @@ class PlaceDetailView(View):
         query = Place.objects.prefetch_related('imgs')
         place = get_object_or_404(query, pk=place_id)
         data = place_to_json(place)
-        return HttpResponse(data, content_type='application/json')
+        return JsonResponse(data, safe=False, json_dumps_params={
+            'ensure_ascii': False,
+            'indent': 4
+        })

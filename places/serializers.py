@@ -1,5 +1,3 @@
-import json
-
 from django.urls import reverse
 
 
@@ -26,12 +24,10 @@ def places_to_geojson(places):
 
 
 def place_to_json(place):
-    data = {
+    return {
         "title": place.title,
         "imgs": [image.place_image.url for image in place.imgs.all()],
         "description_short": place.description_short,
         "description_long": place.description_long,
         "coordinates": place.coordinates
     }
-
-    return json.dumps(data, default=str)
