@@ -1,11 +1,18 @@
 import os
 from pathlib import Path
 
+from environs import Env
+from dotenv import load_dotenv
+
+load_dotenv()
+env = Env()
+env.read_env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'n#m7+%=f)&8%o7!7$m08t$!vu*@p!2n9fd*y)#q@#1y-@41qba'
+SECRET_KEY = os.getenv("SECRET_KEY", "REPLACE_ME")
 
-DEBUG = True
+DEBUG = env.bool("DEBUG", True)
 
 ALLOWED_HOSTS = []
 
