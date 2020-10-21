@@ -5,8 +5,6 @@ from adminsortable2.admin import SortableInlineAdminMixin
 from places.models import Place
 from places.models import Image
 
-admin.site.register(Image)
-
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
@@ -22,6 +20,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
 
 @admin.register(Place)
 class PlaceAdmin(admin.ModelAdmin):
+    search_fields = ['title']
     inlines = [
         ImageInline,
     ]
