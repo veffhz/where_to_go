@@ -25,17 +25,17 @@ def run(url):
     coordinates = response['coordinates']
 
     title = response['title']
-    project = response['title']
+    title_short = response['title']
 
     if '«' in title and '»' in title:
         part = title.split('«')[1]
-        project = part.split('»')[0]
+        title_short = part.split('»')[0]
     elif '"' in title:
-        project = title.split('"')[1]
+        title_short = title.split('"')[1]
 
     place, _ = Place.objects.get_or_create(
         title=title, defaults={
-            'project': project,
+            'title_short': title_short,
             'description_short': response['description_short'],
             'description_long': response['description_long'],
             'lng': coordinates['lng'],

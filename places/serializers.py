@@ -12,7 +12,7 @@ def places_to_geojson(places):
                         'coordinates': [place.round_lng, place.round_lat]
                     },
                     'properties': {
-                        "title": place.project_name,
+                        "title": place.short_title,
                         "placeId": place.pk,
                         "detailsUrl": reverse('place-detail', args=(place.pk,))
                     }

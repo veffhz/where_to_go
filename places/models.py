@@ -7,7 +7,7 @@ from tinymce.models import HTMLField
 
 class Place(models.Model):
     title = models.CharField("Заголовок", max_length=200)
-    project = models.CharField("Проект", max_length=200, null=True)
+    title_short = models.CharField("Краткое название", max_length=200, null=True)
     description_short = models.TextField("Описание")
     description_long = HTMLField("Полное описание")
     lat = models.DecimalField(max_digits=16, decimal_places=14, verbose_name='Широта')
@@ -21,8 +21,8 @@ class Place(models.Model):
         }
 
     @property
-    def project_name(self):
-        return f'«{self.project}»'
+    def short_title(self):
+        return f'«{self.title_short}»'
 
     @property
     def round_lng(self):
