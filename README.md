@@ -89,8 +89,8 @@ $ python manage.py runserver
         "https://kudago.com/media/images/place/66/23/6623e6c8e93727c9b0bb198972d9e9fa.jpg",
         "https://kudago.com/media/images/place/64/82/64827b20010de8430bfc4fb14e786c19.jpg",
     ],
-    "description_short": "Хотите увидеть Москву с высоты птичьего полёта?",
-    "description_long": "<p>Проект «Крыши24.рф» проводит экскурсии ...</p>",
+    "short_description": "Хотите увидеть Москву с высоты птичьего полёта?",
+    "long_description": "<p>Проект «Крыши24.рф» проводит экскурсии ...</p>",
     "coordinates": {
         "lat": 55.753676,
         "lng": 37.64

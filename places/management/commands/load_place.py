@@ -25,19 +25,19 @@ def run(url):
     coordinates = response['coordinates']
 
     title = response['title']
-    title_short = response['title']
+    short_title = response['title']
 
     if '«' in title and '»' in title:
         part = title.split('«')[1]
-        title_short = part.split('»')[0]
+        short_title = part.split('»')[0]
     elif '"' in title:
-        title_short = title.split('"')[1]
+        short_title = title.split('"')[1]
 
     place, _ = Place.objects.get_or_create(
         title=title, defaults={
-            'title_short': title_short,
-            'description_short': response['description_short'],
-            'description_long': response['description_long'],
+            '_short_title': short_title,
+            'short_description': response['short_description'],
+            'long_description': response['long_description'],
             'lng': coordinates['lng'],
             'lat': coordinates['lat']
         }
