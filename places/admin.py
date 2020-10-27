@@ -12,10 +12,13 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     readonly_fields = ["place_image_preview"]
 
     def place_image_preview(self, obj):
-        url = obj.place_image.url
-        return format_html(
-            '<img src="{}" width="auto" style="max-height: 200px;" />', url
-        )
+        if obj.place_image:
+            url = obj.place_image.url
+            return format_html(
+                '<img src="{}" width="auto" style="max-height: 200px;" />', url
+            )
+        else:
+            return 'Здесь будет превью, когда вы выберете файл'
 
 
 @admin.register(Place)
