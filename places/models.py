@@ -10,8 +10,8 @@ class Place(models.Model):
     project = models.CharField("Проект", max_length=200, null=True)
     description_short = models.TextField("Описание")
     description_long = HTMLField("Полное описание")
-    lat = models.DecimalField('Latitude', max_digits=16, decimal_places=14)
-    lng = models.DecimalField('Longitude', max_digits=16, decimal_places=14)
+    lat = models.DecimalField(max_digits=16, decimal_places=14, verbose_name='Широта')
+    lng = models.DecimalField(max_digits=16, decimal_places=14, verbose_name='Долгота')
 
     @property
     def coordinates(self):
@@ -42,8 +42,13 @@ class Place(models.Model):
 
 class Image(models.Model):
     place_image = models.ImageField('Изображение')
-    place = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='imgs',)
-    position = models.PositiveIntegerField('Позиция', default=0, blank=False, null=False)
+    place = models.ForeignKey(
+        Place, on_delete=models.CASCADE,
+        related_name='imgs', verbose_name="Место на карте"
+    )
+    position = models.PositiveIntegerField(
+        'Позиция', default=0, blank=False, null=False
+    )
 
     def __str__(self):
         return f"{self.position} {self.place}"
