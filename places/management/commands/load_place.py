@@ -18,7 +18,7 @@ class Command(BaseCommand):
 
 
 def run(url):
-    response = requests.get(url)
+    response = requests.get(url, allow_redirects=False)
     response.raise_for_status()
 
     response = response.json()
@@ -46,7 +46,9 @@ def run(url):
     links = response['imgs']
 
     for link_no, image_link in enumerate(links):
-        response = requests.get(image_link)
+        response = requests.get(image_link, allow_redirects=False)
+        response.raise_for_status()
+
         image_content_file = ContentFile(response.content)
         path, file_name = os.path.split(image_link)
 
