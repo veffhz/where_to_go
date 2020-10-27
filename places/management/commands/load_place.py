@@ -34,12 +34,13 @@ def run(url):
         project = title.split('"')[1]
 
     place, _ = Place.objects.get_or_create(
-        title=title,
-        project=project,
-        description_short=response['description_short'],
-        description_long=response['description_long'],
-        lng=coordinates['lng'],
-        lat=coordinates['lat']
+        title=title, defaults={
+            'project': project,
+            'description_short': response['description_short'],
+            'description_long': response['description_long'],
+            'lng': coordinates['lng'],
+            'lat': coordinates['lat']
+        }
     )
 
     links = response['imgs']
