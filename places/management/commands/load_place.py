@@ -53,4 +53,4 @@ def run(url):
         path, file_name = os.path.split(image_link)
 
         image = Image.objects.create(place=place, position=link_no)
-        image.place_image.save(file_name, image_content_file, save=True)
+        image.file.save(file_name, image_content_file, save=True)

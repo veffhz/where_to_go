@@ -41,7 +41,7 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    place_image = models.ImageField('Изображение')
+    file = models.ImageField('Изображение')
     place = models.ForeignKey(
         Place, on_delete=models.CASCADE,
         related_name='imgs', verbose_name="Место на карте"

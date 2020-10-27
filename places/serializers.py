@@ -26,7 +26,7 @@ def places_to_geojson(places):
 def place_to_json(place):
     return {
         "title": place.title,
-        "imgs": [image.place_image.url for image in place.imgs.all()],
+        "imgs": [image.file.url for image in place.imgs.all()],
         "short_description": place.short_description,
         "long_description": place.long_description,
         "coordinates": place.coordinates

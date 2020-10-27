@@ -9,11 +9,11 @@ from places.models import Image
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
 
-    readonly_fields = ["place_image_preview"]
+    readonly_fields = ["image_preview"]
 
-    def place_image_preview(self, obj):
-        if obj.place_image:
-            url = obj.place_image.url
+    def image_preview(self, obj):
+        if obj.file:
+            url = obj.file.url
             return format_html(
                 '<img src="{}" width="auto" style="max-height: 200px;" />', url
             )
